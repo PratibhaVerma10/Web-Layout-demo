@@ -1,0 +1,140 @@
+<!DOCTPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+  <style>
+  h1 {
+     width: 100%;
+    height: 110px;
+     background-image: url("blue.jpg");
+    border: 0px solid black;
+	text-align: center;
+	 margin: auto;
+  }
+  .contact {
+     width: 400px;
+	 height: 400px;
+	 border: 3px solid blue;
+	padding: 40px 35;
+   }
+
+  body {background-image: url("lightblue.jpg"); }
+  .column {
+    float: left;
+    width: 33.33%;
+    padding: 15px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+    .column {
+        width: 100%;
+    }
+}
+  </style>
+</head>
+<body >
+<script>
+  var app = angular.module("myApp", ["ngRoute"]);
+  app.config(function($routeProvider){
+   $routeProvider
+    when('/about', {
+          templateUrl: 'about.html',
+        });
+		
+  });
+  
+  var app1 = angular.module('myApp',[]);
+  app1.controller('myCtrl', function($scope){
+   $scope.showMe = false;
+   $scope.showForm = function(){
+   $scope.showMe = !$scope.showMe;
+   }
+  });
+ 
+</script>
+<header ng-app="myApp" ng-controller="myCtrl">
+ <div class="wrap">
+<h1>Example TUTORIAL </h1>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Website tutorial</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">PHP <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="https://www.w3schools.com/php/default.asp">PHP</a></li>
+          <li><a href="https://www.w3schools.com/sql/sql_ref_mysql.asp">MySQl</a></li>
+          <li><a href="https://www.w3schools.com/sql/sql_drop_db.asp">DATABASE</a></li>
+        </ul>
+      </li>
+      <li><a href="https://www.w3schools.com/js/default.asp">JAVASCRIPT</a></li>
+	  <li><a href="https://www.w3schools.com/jquery/default.asp">JQUERY</a></li>
+	 <li><a id="aboutBtn" href="#!/about" ng-class="{activeSmall:part == 'about'}">About</a></li>
+	 <li style="margin-right:0px"><a id="contactBtn" class="active" href="javascript: void(0)" ng-click="showForm()">Contact Us</a></li>
+    </ul>
+	
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+ </nav>
+ </div>
+</center>
+<div  class="contact" ng-show="showMe">
+     <form >
+	 <p>Address: 123, tower A, xyz Road, Mayur Vihar Extion, New Delhi</p>
+	 <p>If You want to drop any message click :  <input type = "checkbox" ng-model="detail">
+	   </form>
+	 <div class="contact1" ng-show="detail">  
+    <input type="text" placeholder="Your Name"><br/>
+	<input type="text" placeholder="Your Email"><br/>
+	<textarea rows="5" placeholder="Your message"></textarea><br/>
+	<button >send message</button></div>
+ </div> </div></center>
+   </header>  
+ 
+ <div class="row">
+  <div class="column">
+    <h2>Examples</h2>
+    <p> </p>
+  </div>
+  <div class="column">
+    <h2>HTML</h2>
+    <p>The language for building web pages</p>
+	<button>LEANR HTML</button>
+	<button>LEANR Reference</button>
+  </div>
+  <div class="column">
+    <h2>Course Buy</h2>
+	
+	<ul>
+    <li>Course Name: <input type="text" ng-model="CName"><br/></li>
+	<li>Your Name: <input type="text" ng-model="YName"><br/></li>
+	<li>Your Email : <input type="email" ng-model="mail"><br/></li>
+	<li>Contact: <input type="text" ng-model="Contact"><br/></li>
+	<li><button>Submit</button></li></ul>
+  </div>
+</div>
+   
+
+   
+</body>
+</html>
